@@ -14,6 +14,7 @@
 		420421751CA1BAFB00C1DF0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 420421731CA1BAFB00C1DF0E /* LaunchScreen.storyboard */; };
 		420421801CA1BAFB00C1DF0E /* go_mobile_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204217F1CA1BAFB00C1DF0E /* go_mobile_iosTests.swift */; };
 		4204218B1CA1BAFB00C1DF0E /* go_mobile_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204218A1CA1BAFB00C1DF0E /* go_mobile_iosUITests.swift */; };
+		429F312A1CA1BFCB007D6BAF /* mobilesdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429F31291CA1BFCB007D6BAF /* mobilesdk.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		420421861CA1BAFB00C1DF0E /* go-mobile-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "go-mobile-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4204218A1CA1BAFB00C1DF0E /* go_mobile_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = go_mobile_iosUITests.swift; sourceTree = "<group>"; };
 		4204218C1CA1BAFB00C1DF0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		429F31251CA1BF7E007D6BAF /* go-mobile-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "go-mobile-ios-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		429F31291CA1BFCB007D6BAF /* mobilesdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = mobilesdk.framework; path = frameworks/mobilesdk.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429F312A1CA1BFCB007D6BAF /* mobilesdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +85,7 @@
 				4204217E1CA1BAFB00C1DF0E /* go-mobile-iosTests */,
 				420421891CA1BAFB00C1DF0E /* go-mobile-iosUITests */,
 				420421681CA1BAFB00C1DF0E /* Products */,
+				429F31291CA1BFCB007D6BAF /* mobilesdk.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +108,7 @@
 				420421711CA1BAFB00C1DF0E /* Assets.xcassets */,
 				420421731CA1BAFB00C1DF0E /* LaunchScreen.storyboard */,
 				420421761CA1BAFB00C1DF0E /* Info.plist */,
+				429F31251CA1BF7E007D6BAF /* go-mobile-ios-Bridging-Header.h */,
 			);
 			path = "go-mobile-ios";
 			sourceTree = "<group>";
@@ -397,10 +403,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/frameworks",
+				);
 				INFOPLIST_FILE = "go-mobile-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.awesomeblog.go-mobile-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "go-mobile-ios-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = arm64;
 			};
 			name = Debug;
 		};
@@ -408,10 +424,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/frameworks",
+				);
 				INFOPLIST_FILE = "go-mobile-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.awesomeblog.go-mobile-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "go-mobile-ios-Bridging-Header.h";
+				VALID_ARCHS = arm64;
 			};
 			name = Release;
 		};
@@ -482,6 +506,7 @@
 				420421911CA1BAFB00C1DF0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		420421921CA1BAFB00C1DF0E /* Build configuration list for PBXNativeTarget "go-mobile-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +515,7 @@
 				420421941CA1BAFB00C1DF0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		420421951CA1BAFB00C1DF0E /* Build configuration list for PBXNativeTarget "go-mobile-iosUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +524,7 @@
 				420421971CA1BAFB00C1DF0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

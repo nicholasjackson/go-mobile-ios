@@ -19,10 +19,10 @@ end
 
 namespace :app do
 	builder = XcodeBuilder::XcodeBuilder.new do |config|
-		config.app_name = "Transform"
-		config.target = "TransformiPad"
+		config.app_name = "go-mobile-ios"
+		config.target = "go-mobile-ios"
 		config.sdk = "iphoneos"
-		config.project_file_path = "./xcode/TransformiPad.xcodeproj"
+		config.project_file_path = "./xcode/go-mobile-ios.xcodeproj"
 	end
 
 	task :build do
@@ -38,7 +38,7 @@ namespace :app do
 		OSX::ProvisioningProfile.new(PROVISONING_PROFILE).install
 
 		OSX::Keychain.temp do |keychain|
-			sh "xcrun -sdk iphoneos PackageApplication -v  #{BUILD_DIR}/Transform.app -o  #{BUILD_DIR}/Transform.ipa"
+			sh "xcrun -sdk iphoneos PackageApplication -v  #{BUILD_DIR}/go-mobile-ios.app -o  #{BUILD_DIR}/go-mobile-ios.ipa"
 		end
 	end
 end
