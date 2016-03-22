@@ -1,0 +1,27 @@
+machine:
+  pre:
+    - \curl -sSL https://get.rvm.io | bash -s stable
+    - rvm install 2.2.4
+    - brew uninstall go
+    - brew update
+    - brew install go
+  xcode:
+    version: 7.2
+  environment:
+    GOPATH: /Users/distiller/go
+
+dependencies:
+  override:
+    - mkdir -p /Users/distiller/go/src/github.com/transform
+    - rvm use --create 2.2.4@transform
+    - gem install bundler
+    - bundle install
+    - go get golang.org/x/mobile/cmd/gomobile
+    - $GOPATH/bin/gomobile init
+    - git clone git@github.com:transform/logic-go.git $GOPATH/src/github.com/transform/logic-go
+    - cd $GOPATH/src/github.com/transform/logic-go && go get ./...
+
+test:
+  override:
+    - rake framework:build
+    - rake app:build
